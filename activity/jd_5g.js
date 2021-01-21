@@ -40,8 +40,7 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://rdcseason.m.jd.com/api/';
 const inviteCodes = [
-  '',
-  ''
+  'd5eaca09-2f9e-45dd-921c-d37b8598626a@6b58aaac-7aa9-4f51-abb9-380720968a9a@79989641-a4fd-4ebf-842d-8cc8f7533fdc@f7d53249-2267-4d60-ac72-1de2a08e46b0@52ab8245-7d59-45bf-b69b-c3442feeedd5'
 ];
 !(async () => {
   await requireConfig();
@@ -588,7 +587,7 @@ function shareCodesFormat() {
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
-    const readShareCodeRes = await readShareCode();
+    const readShareCodeRes = null // await readShareCode();
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
     }
@@ -619,7 +618,7 @@ function requireConfig() {
         }
       })
     }
-    let data = await updateShareCodes("https://gitee.com/shylocks/updateTeam/raw/main/jd_818.json")
+    let data = null // await updateShareCodes("https://gitee.com/shylocks/updateTeam/raw/main/jd_818.json")
     if(data){
       inviteCodes[0] = data.join('@')
       inviteCodes[1] = data.join('@')

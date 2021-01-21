@@ -43,8 +43,7 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const inviteCodes = [
-  `vcZUAJEW6NATdpttV8s8s2aZ4u1sc6Q-bWfi11uhlAKAbA`,
-  `vcZUAJEW6NATdpttV8s8s2aZ4u1sc6Q-bWfi11uhlAKAbA`,
+  'oMZeXuJL8Y9fBLA1P-Uk9skL1jNY6J4y_Aioo7-rE8G0b52Q@oMZeXLBOpohQBbRgNuIlreZPWdtzwF25HcUOSg2cgUught8w@oMZeBLMVyO4WV6Fpd-4os1xjABBxfklgyM4NmnuQIdxBYi8@sMpgBKUN9NoJAeIwMfw8sw3oOYleS8e-Vqq72ImQUtLC@oMZeKKIJ3-0RVbl7ctoWsyFcD0SLMyZS9OrYqHv0sxSzUQs'
 ];
 !(async () => {
   await requireConfig();
@@ -419,7 +418,7 @@ function shareCodesFormat() {
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
-    const readShareCodeRes = await readShareCode();
+    const readShareCodeRes = null // await readShareCode();
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
     }
